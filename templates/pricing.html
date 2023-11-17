@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelsBuilder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link href="{{ url_for('static', filename='pricing.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='icon.svg') }}" type="image/x-icon"/>
+</head>
+<body>
+    <div class="row-container" id="topbar">
+        <div class="raw-container" id="logo">
+            <a href="/?id={{id}}">
+                <img height="50" width="auto" src="{{ url_for('static', filename='logo.png') }}"/>
+            </a>
+        </div>
+        <div class="raw-container" id="pages">
+            <a class="link-text" href="/?id={{id}}">Features</a>
+            <a class="link-text" href="/pricing?id={{id}}">Pricing</a>
+        </div>
+        <div class="raw-container" id="login">
+            <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Join here</a>
+        </div>
+        <!-- Inside the topbar div -->
+        <div class="raw-container" id="mobile-menu">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div id="dropdown" class="dropdown-content">
+                <a class="link-text" href="/?id={{id}}">Features</a>
+                <a class="link-text" href="/pricing?id={{id}}">Pricing</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <main class="column-container" id="features">
+        <div class="main">
+            <h1>Start your Social Media <span id="red">journey today</span></h1>
+            <span id="gray">No hidden fees.</span>
+        </div>
+        <div class="row-container2">
+            <h3>Monthly <span id="red">(-10%)</span></h3>
+            <button class="toggle" id="toggle" onclick="togglePrices()">
+                <div class="toggle-button" id="btn">
+                </div>
+            </button>
+            <h3>Once</h3>
+        </div>
+        <div class="row-container monthly" id="month">
+            <div class="feature">
+                <h3><b>Free</b>
+                    <br>
+                    <span id="gray">Test our Telegram Bot. Click Start Now.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$0<span>/month</span></h2>
+                <span>Billed monthly</span>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>10 videos</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/no-entry--v1.png" alt="no-entry--v1"/>
+                    <span>Multi generation: No</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Standard</b>
+                    <br>
+                    <span id="gray">Ideal if your are just starting in content creation.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$20<span>/month</span></h2>
+                <span>Billed monthly</span>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>60 videos / month</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/no-entry--v1.png" alt="no-entry--v1"/>
+                    <span>Multi generation: 0</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Advanced</b>
+                    <br>
+                    <span id="gray">Skyrocket your audience and increase retention.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$45<span>/month</span></h2>
+                <span>Billed monthly</span>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>150 videos / month</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Multi generation: 2</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Premium</b>
+                    <br>
+                    <span id="gray">Perfect for people to build their brand.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$90<span>/month</span></h2>
+                <span>Billed monthly</span>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>400 videos / month</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Multi generation: 5</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-container once" id="once">
+            <div class="feature">
+                <h3><b>Free</b>
+                    <br>
+                    <span id="gray">Test our Telegram Bot. Click Start Now.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$0<span></span></h2>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>10 videos</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/no-entry--v1.png" alt="no-entry--v1"/>
+                    <span>Multi generation: No</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Standard</b>
+                    <br>
+                    <span id="gray">Ideal if your are just starting in content creation.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$25</h2>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>60 videos</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/no-entry--v1.png" alt="no-entry--v1"/>
+                    <span>Multi generation: 0</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Advanced</b>
+                    <br>
+                    <span id="gray">Skyrocket your audience and increase retention.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$50</h2>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>150 videos</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Multi generation: 2</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3><b>Premium</b>
+                    <br>
+                    <span id="gray">Perfect for people to build their brand.</span>
+                </h3>
+                <div class="divider"></div>
+                <h2>$100</h2>
+                <a class="main-button" href="https://t.me/automotivationvideo_bot?start={{id}}">Start now</a>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span><b>400 videos</b></span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Reddit Bot</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Clips</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Any Length Video</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Custom Font</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>2 Caption Types</span>
+                </div>
+                <div class="row-container point">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#ccff90" d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"></path>
+                    </svg>
+                    <span>Multi generation: 5</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <a href='/?id={{id}}' class="mg"><img height="50" width="auto" src="{{ url_for('static', filename='logo.png') }}"/></a> 
+        <div class="row-container mg">
+            <a class="link-text" href="/?id={{id}}"><span>Features</span></a>
+            <a class="link-text" href="/pricing?id={{id}}"><span>Pricing</span></a>
+        </div>
+        <span class="mg">©Copyright 2023 ReelsBuilder</span>
+    </div>
+
+</body>
+</html>
