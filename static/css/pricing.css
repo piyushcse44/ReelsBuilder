@@ -1,0 +1,140 @@
+:root{
+    --gray--gray-900: #18181b;
+    --neutral--black: black;
+    --black: black;
+    --orange-red: #ff4f01;
+    --gray--gray-600: #696977;
+    --green--base: #c2ff66;
+    --gray--gray-300: #e4e4e7;
+    --gray--white: white;
+    --gray--gray-400: #b3b3bc;
+    --gray--gray-100: #f7f7f8;
+    --gray--gray-200: #ececee;
+    --gray--gray-500: #9e9ea9;
+    --gray--gray-700: #4d4d56;
+    --gray--gray-800: #3a3a41;
+    --green--dark: #8ac92c;
+    --green--light: #f3ffe0;
+    --orange--dark: #c94b2c;
+    --orange--base: #ffad99;
+    --orange--light: #ffe8e0;
+    --yellow--dark: #c9a92c;
+    --yellow--base: #ffeb99;
+    --yellow--light: #fff9e0;
+    --teal--dark: #2cbec9;
+    --teal--base: #b1f6fb;
+    --teal--light: #e0fdff;
+    --blue--dark: #372cc9;
+    --blue--base: #7a70ff;
+    --blue--light: #bbb8ff;
+    --floral-white: #fff7ed;
+    --gainsboro: #e5e7eb;
+    --slate-grey: #6b7280;
+    --white-smoke: #f3f4f6;
+    --blue-black: #111827;
+    --dim-grey: #4b5563;
+    --red: #cc3d00;
+    --white-smoke-2: #f1f1f1;
+    --dark-grey: rgba(175,175,175,.08);
+    --untitled-ui-gray200: #eaecf0;
+    --untitled-ui-primary600: #7f56d9;
+    --untitled-ui-white: white;
+    --untitled-ui-primary700: #6941c6;
+    --untitled-ui-primary100: #f4ebff;
+    --untitled-ui-gray900: #101828;
+    --untitled-ui-gray100: #f2f4f7;
+    --untitled-ui-gray700: #344054;
+    --untitled-ui-primary50: #f9f5ff;
+    --untitled-ui-gray500: #667085;
+    --untitled-ui-gray600: #475467;
+    --conversion-flow-library-medium-purple: #b16cea;
+    --conversion-flow-library-light-coral: #ff5e69;
+    --conversion-flow-library-sandy-brown: #ffa84b;
+    --conversion-flow-library-coral: #ff8a56;
+    --untitled-ui-gray300: #d0d5dd;
+    --untitled-ui-gray50-501: #f9fafb;
+    --untitled-ui-gray800: #1d2939;
+    --untitled-ui-primary800: #53389e;
+    --untitled-ui-gray400: #98a2b3;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.feature span{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.divider{
+    margin: 0;
+}
+
+.point svg, .point img{
+    min-width: 34px;
+    min-height: auto;
+    max-width: 34px;
+    max-height: 34px;
+}
+
+.feature{
+    max-width: 300px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 35px;
+}
+
+.point{
+    align-items: center;
+}
+
+button{
+    cursor: pointer;
+    background-color: var(--gainsboro);
+    width: 80px;
+    height: 40px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.toggle-button{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    border-radius: 25px;
+    float: left;
+}
+
+main .main{
+    margin-bottom: 0;
+}
+
+.row-container2{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.row-container2 h3{
+    font-size: 20px;
+}
+
+#once {
+    transition: opacity 0.3s ease-in-out; /* Adjust the time (0.5s) as needed */
+    opacity: 0;  /* Start with hidden state */
+    display: none;
+}
+
+#month {
+    transition: opacity 0.3s ease-in-out; /* Adjust the time (0.5s) as needed */
+    opacity: 1;  /* Start with hidden state */
+    display: flex;
+}
