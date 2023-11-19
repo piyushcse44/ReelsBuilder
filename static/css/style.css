@@ -356,6 +356,8 @@ a{
 
 
 .main{
+    min-width: 40%;
+    width: 50vw;
     margin-top: 20px;
     margin-bottom: 20px;
 }

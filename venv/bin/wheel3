@@ -1,4 +1,4 @@
-#!/home/piyush/Desktop/Django/client/telegramapi/venv/bin/python
+#!/home/piyush/Desktop/Django/client/RellsBuilder/ReelsBuilder/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

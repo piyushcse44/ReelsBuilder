@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-29vm5(5(&^ckqq^9fg(r@&$vut#aldou1x8z)^cu!kwv2946!='
+SECRET_KEY = 'django-insecure-zevo=zsrg(b3cf7u76dw_90%7!gx5t7c9&u47c6+usvrx%z(yc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Profile',
-    'User',
+    'User.apps.UserConfig',
+
+    # social auth
+    'social_django',
+   
 ]
 
 MIDDLEWARE = [
@@ -49,17 +52,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #social_auth
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'ReelsBuilder.urls'
-
 import os
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-           os.path.join(BASE_DIR,'templates')
+            os.path.join(BASE_DIR,'templates'),
+          
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -68,6 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #social_auth
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -129,7 +135,28 @@ STATICFILES_DIRS =[
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
 MEDIA_URL ='/media/'
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#social custom settings
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    
+]
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'home'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '639154343199-3d41o8b2tnd58o7jog63g4d22865i9al.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+

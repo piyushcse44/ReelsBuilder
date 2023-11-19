@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,32 +9,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/profile.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <link rel="icon" href="{{ url_for('static', filename='icon.svg') }}" type="image/x-icon"/>
+    <script src="{% static '/js/script.js' %}"></script>
+    <link rel="icon" href="{% static '/media/icons/icon.svg'%}" type="image/x-icon"/>
 </head>
 <body>
     <div class="row-container" id="topbar">
         <div class="raw-container" id="logo">
-            <a href="/?id={{id}}">
-                <img height="50" width="auto" src="{{ url_for('static', filename='logo.png') }}"/>
+            <a href="{% url 'home' %}">
+                <img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"/>
             </a>
         </div>
         <div class="raw-container" id="pages">
             <a class="link-text" href="/?id={{id}}">Features</a>
-            <a class="link-text" href="/pricing?id={{id}}">Pricing</a>
+            <a class="link-text" href="pricing.html">Pricing</a>
         </div>
         <div class="raw-container" id="login">
-            <a class="link-text">Profile</a>
+            <!-- <a class="main-button" href="{% url 'signup' %}">Join here</a> -->
+            {% if request.user.is_authenticated %}
+            <a class="main-button" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a class="main-button" href="{% url 'social:begin' 'google-oauth2' %}">Join here</a>
+            {% endif %}
+            
         </div>
         <!-- Inside the topbar div -->
         <div class="raw-container" id="mobile-menu">
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <div id="dropdown" class="dropdown-content">
                 <a class="link-text" href="/?id={{id}}">Features</a>
-                <a class="link-text" href="/pricing?id={{id}}">Pricing</a>
+                <a class="link-text" href="pricing.html">Pricing</a>
             </div>
         </div>
     </div>
@@ -44,13 +51,16 @@
         <div id="about" class="main column-container feature">
             <div class="header">
                 <div class="row-container header2">
-                    <h3>My videos</h3>
-                    <a class="main-button" href="/video">Create</a>
-                </div>
-                <div class="limit">
-                    0/5 VIDEOS
+                    <div class = "video-header">
+                        <h3>My videos</h3>
+                        <a class="main-button" href="#">Create</a>
+                    </div>
+                     <div class="limit video-header">
+                          0/5 VIDEOS
                     <a class="main-button">Upgrade</a>
                 </div>
+                </div>
+               
             </div>
             <div class="divider"></div>
             <table>
@@ -63,11 +73,11 @@
         </div>
     </main>
 
-    <div class="footer" id="#footer">
-        <a href='/?id={{id}}' class="mg"><img height="50" width="auto" src="{{ url_for('static', filename='logo.png') }}"/></a> 
+    <div class="footer">
+        <a href='/?id={{id}}' class="mg"><img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"></a> 
         <div class="row-container mg">
             <a class="link-text" href="/?id={{id}}"><span>Features</span></a>
-            <a class="link-text" href="/pricing?id={{id}}"><span>Pricing</span></a>
+            <a class="link-text" href="pricing.html"><span>Pricing</span></a>
         </div>
         <span class="mg">©Copyright 2023 ReelsBuilder</span>
     </div>
