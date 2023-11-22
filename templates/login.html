@@ -18,6 +18,7 @@
 <!-- this section contains form for log in -->
 {% block content %}
 <form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form">
+     {% csrf_token %}
     <div>
         <div class="ccl-margin-sm">
             <div class="ccl-su-position-rel">

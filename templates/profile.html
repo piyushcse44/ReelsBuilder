@@ -1,53 +1,10 @@
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReelsBuilder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-    <link rel="stylesheet" href="{% static '/css/profile.css' %}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="{% static '/js/script.js' %}"></script>
-    <link rel="icon" href="{% static '/media/icons/icon.svg'%}" type="image/x-icon"/>
-</head>
-<body>
-    <div class="row-container" id="topbar">
-        <div class="raw-container" id="logo">
-            <a href="{% url 'home' %}">
-                <img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"/>
-            </a>
-        </div>
-        <div class="raw-container" id="pages">
-            <a class="link-text" href="/?id={{id}}">Features</a>
-            <a class="link-text" href="pricing.html">Pricing</a>
-        </div>
-        <div class="raw-container" id="login">
-            <!-- <a class="main-button" href="{% url 'signup' %}">Join here</a> -->
-            {% if request.user.is_authenticated %}
-            <a class="main-button" href="{% url 'profile' %}">profile</a>
-            {% else %}
-            <a class="main-button" href="{% url 'social:begin' 'google-oauth2' %}">Join here</a>
-            {% endif %}
-            
-        </div>
-        <!-- Inside the topbar div -->
-        <div class="raw-container" id="mobile-menu">
-            <div class="menu-icon" onclick="toggleMenu()">☰</div>
-            <div id="dropdown" class="dropdown-content">
-                <a class="link-text" href="/?id={{id}}">Features</a>
-                <a class="link-text" href="pricing.html">Pricing</a>
-            </div>
-        </div>
-    </div>
 
-    <div class="divider"></div>
-
+  {% block body_content %}
+  
     <main class="column-container">
+        <p style="margin-top: 10px;">welcome  : {{user_info.user_email}}</p>
         <div id="about" class="main column-container feature">
             <div class="header">
                 <div class="row-container header2">
@@ -56,31 +13,31 @@
                         <a class="main-button" href="#">Create</a>
                     </div>
                      <div class="limit video-header">
-                          0/5 VIDEOS
+                          {{user_info.video_count}}/5 VIDEOS
                     <a class="main-button">Upgrade</a>
                 </div>
                 </div>
                
             </div>
             <div class="divider"></div>
-            <table>
+            <table class="profile_video_info_table">
                 <tr>
                     <th>Video ID</th>
-                    <th>Download Link</th>
+                    <td>Download Link</th>
                     <th>Time Created</th>
                 </tr>
-            </table>
+                {% for video_info in user_info.user_video.all %}
+                <tr>
+                  <td>{{video_info.video_id}}</td>
+                  <td>{{video_info.download_link}}</td>
+                  <td>{{video_info.time_created}}</td>
+                </tr>
+                {% endfor %}
+               
+              </table>
+              
         </div>
     </main>
+ {% endblock %}
 
-    <div class="footer">
-        <a href='/?id={{id}}' class="mg"><img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"></a> 
-        <div class="row-container mg">
-            <a class="link-text" href="/?id={{id}}"><span>Features</span></a>
-            <a class="link-text" href="pricing.html"><span>Pricing</span></a>
-        </div>
-        <span class="mg">©Copyright 2023 ReelsBuilder</span>
-    </div>
-
-</body>
-</html>
+                   
