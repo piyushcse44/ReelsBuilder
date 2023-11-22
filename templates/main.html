@@ -8,9 +8,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% block meta_content %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+
     <title>ReelsBuilder</title>
+
+    {% block static_url %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
@@ -21,6 +27,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="{% static '/js/script.js' %}"></script>
     <link rel="icon" href="{% static '/media/icons/icon.svg'%}" type="image/x-icon" />
+    {% endblock %}
+
 </head>
 
 
@@ -29,30 +37,41 @@
 
     <div class="row-container" id="topbar">
         <div class="raw-container" id="logo">
-            <a href="/?id={{id}}">
-                <img height="50" width="auto" src="{% static '/media/icons/logo.png' %}" />
+            <a href="{% url 'home' %}">
+                <img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"/>
             </a>
         </div>
         <div class="raw-container" id="pages">
             <a class="link-text" href="/?id={{id}}">Features</a>
-            <a class="link-text" href="pricing.html">Pricing</a>
-        </div>
+            <a class="link-text" href="{% url 'pricing' %}">Pricing</a>
+    </div>
+       
+        {% block login_nav %}
         <div class="raw-container" id="login">
-            <a class="main-button" href="{% url 'login'%}">LOGIN</a>
+            <!-- <a class="main-button" href="{% url 'signup' %}">Join here</a> -->
+            {% if request.user.is_authenticated %}
+            <a class="main-button" href="{% url 'profile' %}">Profile</a>
+            {% else %}
+            <a class="main-button" href="{% url 'social:begin' 'google-oauth2' %}">Join here</a>
+            {% endif %}
+            
         </div>
+        {% endblock %}
+
         <!-- Inside the topbar div -->
         <div class="raw-container" id="mobile-menu">
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <div id="dropdown" class="dropdown-content">
                 <a class="link-text" href="/?id={{id}}">Features</a>
-                <a class="link-text" href="pricing.html">Pricing</a>
+                <a class="link-text" href="{% url 'pricing' %}">Pricing</a>
             </div>
         </div>
     </div>
 
+    <div class="divider"></div>
 
 
-    {% block common %}  
+    {% block body_content %}  
       <!-- this is for writting code in body where navbar excluded -->
      {% endblock %}
 
@@ -61,7 +80,7 @@
     <a href='/?id={{id}}' class="mg"><img height="50" width="auto" src="{% static '/media/icons/logo.png' %}"></a>
     <div class="row-container mg">
         <a class="link-text" href="/?id={{id}}"><span>Features</span></a>
-        <a class="link-text" href="pricing.html"><span>Pricing</span></a>
+        <a class="link-text" href="{% url 'pricing' %}"><span>Pricing</span></a>
     </div>
     <span class="mg">©Copyright 2023 ReelsBuilder</span>
 </div>

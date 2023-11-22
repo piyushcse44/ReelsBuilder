@@ -133,6 +133,13 @@ input{
     flex-direction: row;
 }
 
+#month{
+    text-align: center;
+    justify-content: center;
+    gap: 30px !important;
+    width:  80% !important;
+}
+
 #pages{
     display: flex;
     gap: 15px;
