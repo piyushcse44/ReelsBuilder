@@ -133,13 +133,6 @@ input{
     flex-direction: row;
 }
 
-#month{
-    text-align: center;
-    justify-content: center;
-    gap: 30px !important;
-    width:  80% !important;
-}
-
 #pages{
     display: flex;
     gap: 15px;
@@ -349,7 +342,6 @@ span{
     flex-direction: column;
     display: flex;
     justify-content: center;
-    margin: 30px auto;
 }
 
 .mg{
@@ -363,8 +355,6 @@ a{
 
 
 .main{
-    min-width: 40%;
-    width: 50vw;
     margin-top: 20px;
     margin-bottom: 20px;
 }
