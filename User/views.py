@@ -49,9 +49,11 @@ def signup(request):
             user.username = user.username.lower()
             user.save()
     
+        
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+           
 
-            return render(request,'profile.html')
+            return redirect('profile.html')
         else:
             return render(request, 'signup.html', {'error_message': 'Invalid credentials', "form":form})
    
