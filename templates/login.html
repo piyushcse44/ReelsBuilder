@@ -1,22 +1,48 @@
-{% extends 'signup.html' %}
+{% extends 'main.html' %}
 {% load static %}
 
+{% block body_content %}
 
-<!-- this is  a heading for sign up -->
-{% block login_txt %}
-<h2 class="m-head__23">Already have an account?</h2>
-{% endblock %}
+<section class="l-section l-section--blue-1  l-last-section l-padding-top--40">
+    <div class="page-tabs l-section--center l-row--800">
+        <div class="title">
+            <div class="links">
 
 
-{% block login_sinup_option %}
-<a href="{% url 'signup' %}" id="signup" data-name="new-user" onclick="updateLoginOrSignupLink('signup')" class="">Sign
-    up</a>
-<a href="{% url 'login'  %}" id="login" data-name="login" onclick="updateLoginOrSignupLink('login')"
-    class="current">Login</a>
-{% endblock %}
+                <a href="{% url 'login'  %}" id="login" data-name="login" class="current"
+                    onclick="updateLoginOrSignupLink('login')" class="">Login</a>
 
-<!-- this section contains form for log in -->
-{% block content %}
+
+            </div>
+        </div>
+        <div class="l-section l-section--center l-padding-top--40  tab new-user l-row--800" id="cc-register-viewport"
+            style="display: block;">
+            <div class="l-row">
+
+                <h2 class="m-head__23">Already have an account?</h2>
+
+
+                <div class="ccl-su-disable" cc-forms="form-overlay" style="display: none;"></div>
+                <div class="set-display-form">
+                    <div class="ccl-ns-content  l-row--320">
+                        <p class="m-para m-para--600">Use Social Media Credentials</p>
+                        <div class="l-oauth-buttons" id="oauth-buttons">
+                            <li>
+                                <a href="{% url 'social:begin' 'google-oauth2' %}"
+                                    class="icon-social oauth_button oauth_button-medium connect"
+                                    title="Signup/Login with Google" id="button_google">
+
+                                </a>
+                            </li>
+
+                        </div>
+                        <p class="m-oauth-divider">
+                            <span class="l-oauth-divider"></span>OR<span class="l-oauth-divider"></span>
+                        </p>
+
+
+
+
 
 
 <!-- error message -->
@@ -24,12 +50,12 @@
 
 
 <form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form ">
-     {% csrf_token %}
+    {% csrf_token %}
     <div>
         <div class="ccl-margin-sm">
             <div class="ccl-su-position-rel">
                 <div class="form-item" id="edit-name-wrapper">
-                    <label for="edit-name">Username or Email: <span class="form-required"
+                    <label for="edit-name">Email: <span class="form-required"
                             title="This field is required.">*</span></label>
                     <input type="text" maxlength="128" name="name" id="edit-name" size="60" value="" description="1"
                         tabindex="1" autofocus="" data="1" class="form-text required ccl-f-placeholder ccl-f-input"
@@ -65,10 +91,9 @@
                 </div>
             </div>
         </div>
-        <div class="ccl-margin-s"><input type="submit" name="op"  id="edit-submit-button" value="Login"
+        <div class="ccl-margin-s"><input type="submit" name="op" id="edit-submit-button" value="Login"
                 class="ccl-f-input ccl-float-right cc-login-btn form-control" tabindex="3" autocomplete="none">
-        </div><a href="{% url 'reset_password' %}" class="m-list__link m-forgot-password" tabindex="4">Forgot
-            Password?</a>
+        </div>
         <p class="m-help__text l-margin-top-28">For any issues or assistance, email
             <a href="#" class="m-list__link">help@mysite.com</a>
         </p><input type="hidden" name="form_build_id" id="form-Idu1aItHDkdD6KuYKC9AI8C77bX6NvxD4rj7vtUyU6o"
@@ -76,4 +101,8 @@
         <input type="hidden" name="form_id" id="edit-ajax-login-form" value="ajax_login_form" autocomplete="none">
     </div>
 </form>
+
+</section>
+
+
 {% endblock %}

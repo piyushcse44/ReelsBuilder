@@ -39,35 +39,6 @@ def custom_login(request):
     return render(request, "login.html")
 
 
-def signup(request):
-    if request.user.is_authenticated:
-        return render(request, "profile.html")
-
-    form = CustomUserCreationForm()
-
-    if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower()
-            user.save()
-
-            login(request, user, backend="django.contrib.auth.backends.ModelBackend")
-
-            return redirect("profile")
-        else:
-            return render(
-                request,
-                "signup.html",
-                {"error_message": "Invalid credentials", "form": form},
-            )
-
-    return render(request, "signup.html", {"form": form})
-
-
-def reset_password(request):
-    return render(request, "reset_password.html")
-
 
 @login_required(login_url="login")
 def user_profile(request):
