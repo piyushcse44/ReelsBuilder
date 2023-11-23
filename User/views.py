@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from .form import UserCreationForm
-from .models import UserInfo,Videos
+from .form import CustomUserCreationForm
+from .models import UserInfo
 
 
 # Create your views here.
@@ -24,9 +24,10 @@ def custom_login(request):
         
         
         user = authenticate(request, username=username, password=password)
-        print(user)
+
         if user is not None:
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+
             return render(request, 'profile.html')
         else:
             return render(request, 'login.html', {'error_message': 'Invalid credentials'})
@@ -39,31 +40,25 @@ def signup(request):
     if request.user.is_authenticated:
         return render(request,'profile.html')
     
+    form = CustomUserCreationForm()
+
     if request.method == 'POST':
-        username = request.POST.get('mail')
-        password = request.POST.get('password')
-        email = username
-      
-        try :
-           user =  User.objects.create(
-                username = username,
-                password = password,
-                email = email
-                )
-        except :
-                return render(request,'signup.html',{"error_message":"Invalid username or password"})
-        
-        UserInfo.objects.create(
-            user = user,
-            user_email = user.email,
-            video_count=0,
-            subscription_status = 'free'
-       
-        )
-        login(request, user)
-        return render(request,'login.html')
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit = False);
+            user.username = user.username.lower()
+            user.save()
     
-    return render(request, 'signup.html')
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+
+            return render(request,'profile.html')
+        else:
+            return render(request, 'signup.html', {'error_message': 'Invalid credentials', "form":form})
+   
+   
+
+
+    return render(request, 'signup.html',{'form':form})
 
 
 
