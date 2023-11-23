@@ -3,8 +3,10 @@
 
 
 
-
 {% block body_content %}
+
+
+
 
 
 <section class="l-section l-section--blue-1  l-last-section l-padding-top--40">
@@ -45,47 +47,52 @@
                             <span class="l-oauth-divider"></span>OR<span class="l-oauth-divider"></span>
                         </p>
 
+
+                       
+
                         {% block content %}
-                        <div cc-forms="form" >
-                           
+
+
+
+
+                        <div cc-forms="form">
+
                             <form action="" accept-charset="UTF-8" method="post" id="full-registration-form"
-                                enctype="multipart/form-data" class="l-form">
+                                enctype="multipart/form-data" class="l-form ">
                                 {% csrf_token %}
-                                {% for field in form %}
-                                <div>
-                                    
-                                   
-                                    <div class="ccl-margin-sm">
+
+
+                                <div class="signup_form">
+                                    {% for field in form %}
+
+                                    <div class="ccl-margin-sm signup_for_child">
                                         <div class=" ccl-su-position-rel">
                                             <div class="form-item" id="edit-mail-wrapper">
-                                                <label for="edit-mail" class="ccl-font-p ccl-font-bold">{{field.name}}: <span
-                                                        class="form-required"
-                                                        
-                                              
-
-
+                                                <label for="edit-mail" class="ccl-font-p ccl-font-bold">{{field.name}}:
+                                                    <span class="form-required" </div>
                                             </div>
+                                            {{field}}
+
+                                            {% for error in field.errors %}
+
+                                            <small style="color: red; ">{{error}}</small>
+
+                                            {% endfor %}
                                         </div>
-                                        {{field}}
-                                         
-                                        {% for error in field.errors %}
-                                   
-                                        <small style="color: red; ">{{error}}</small>
-                                    
-                                        {% endfor %}
+
+
+
                                     </div>
-
-                            
-                                 
-                                   
-
-                                  
+                                    {% endfor %}
                                 </div>
-                               {% endfor %}
+
+
+
 
 
                                 <div class="ccl-margin-s"><input type="submit" name="op" id="edit-submit-button"
-                                        value="Register" class="ccl-f-input ccl-float-right" autocomplete="none">
+                                        value="Register" class="ccl-f-input ccl-float-right form-control"
+                                        autocomplete="none">
                                 </div>
                                 <p class="m-help__text l-margin-top-28">For any issues or assistance, email
                                     <a href="#" class="m-list__link">help@my_site.com</a>

@@ -1,0 +1,71 @@
+.body{
+    background-color: black;
+  }
+  .sh-toast-container {
+    position: fixed;
+  /*  bottom: 20px;*/
+    right: 20px;
+    max-width: 300px;
+    z-index: 9999;
+  }
+  
+  .sh-toast-container.top {
+    top: 10px;
+  }
+  
+  .sh-toast-container.bottom {
+    bottom: 20px;
+  }
+  
+  .sh-toast {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success {
+    background-color: #00cc44;
+    color: white;
+  }
+  
+  .danger {
+    background-color: #ff3300;
+    color: white;
+  }
+  
+  .warning {
+    background-color: #ffcc00;
+    color: black;
+  }
+  
+  .info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .sh-progress-bar {
+    height: 4px;
+    background-color: #ccc;
+    width: 100%;
+    position: relative;
+    bottom: -16px;
+    left: 0;
+  }
+  
+  .sh-toast.with-sh-progress-bar .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: #ccc;
+    width: 0;
+  }
+
+  #shToastContainerMiddle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}

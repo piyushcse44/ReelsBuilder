@@ -17,7 +17,13 @@
 
 <!-- this section contains form for log in -->
 {% block content %}
-<form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form">
+
+
+<!-- error message -->
+<p style="color: red;"><b>{{error_message}}</b></p>
+
+
+<form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form ">
      {% csrf_token %}
     <div>
         <div class="ccl-margin-sm">
@@ -59,8 +65,8 @@
                 </div>
             </div>
         </div>
-        <div class="ccl-margin-s"><input type="submit" name="op" id="edit-submit-button" value="Login"
-                class="ccl-f-input ccl-float-right cc-login-btn" tabindex="3" autocomplete="none">
+        <div class="ccl-margin-s"><input type="submit" name="op"  id="edit-submit-button" value="Login"
+                class="ccl-f-input ccl-float-right cc-login-btn form-control" tabindex="3" autocomplete="none">
         </div><a href="{% url 'reset_password' %}" class="m-list__link m-forgot-password" tabindex="4">Forgot
             Password?</a>
         <p class="m-help__text l-margin-top-28">For any issues or assistance, email
