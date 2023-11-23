@@ -10,7 +10,7 @@
                 <div class="row-container header2">
                     <div class = "video-header">
                         <h3>My videos</h3>
-                        <a class="main-button" href="#">Create</a>
+                        <a class="main-button" href="{% url 'video_generator' %}">Create</a>
                     </div>
                      <div class="limit video-header">
                           {{user_info.video_count}}/5 VIDEOS

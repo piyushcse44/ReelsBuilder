@@ -26,11 +26,10 @@
     <link rel="stylesheet" href="{% static '/css/login.css' %}">
     <link rel="stylesheet" href="{% static '/css/profile.css' %}">
     <link rel="stylesheet" href="{% static '/css/show_toast.css' %}">
+    <link rel="stylesheet" href="{% static '/css/video_generator.css' %}">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="{% static '/js/script.js' %}"></script>
-    <script src="{% static '/js/google_login.js' %}"></script>
-    <script src="{% static '/js/show_toast.js' %}"></script>
+   
 
     <link rel="icon" href="{% static '/media/icons/icon.svg'%}" type="image/x-icon" />
     {% endblock %}
@@ -54,7 +53,7 @@
        
         {% block login_nav %}
         <div class="raw-container" id="login">
-            <!-- <a class="main-button" href="{% url 'signup' %}">Join here</a> -->
+            
             {% if request.user.is_authenticated %}
             <div class ="profile_dropdown">
                 <a class="main-button" id ="proflie_icon" onclick="profile_click()">Profile</a>
@@ -103,6 +102,17 @@
     </div>
     <span class="mg">©Copyright 2023 ReelsBuilder</span>
 </div>
+
+
+
+{% block script %}
+<script src="{% static '/js/video_generator.js' %}"></script>
+<script src="{% static '/js/script.js' %}"></script>
+<script src="{% static '/js/google_login.js' %}"></script>
+<script src="{% static '/js/show_toast.js' %}"></script>
+
+{% endblock %}
+
 </body>
 
 </html>

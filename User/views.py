@@ -81,3 +81,7 @@ def user_profile(request):
         user_info = UserInfo.objects.get(user=user)
 
     return render(request, "profile.html", {"user_info": user_info})
+
+
+def video_generator(request):
+    return render(request,"video_generator.html")
