@@ -45,62 +45,69 @@
 
 
 
-<!-- error message -->
-<p style="color: red;"><b>{{error_message}}</b></p>
+                        <!-- error message -->
+                        <p style="color: red;"><b>{{error_message}}</b></p>
 
 
-<form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form ">
-    {% csrf_token %}
-    <div>
-        <div class="ccl-margin-sm">
-            <div class="ccl-su-position-rel">
-                <div class="form-item" id="edit-name-wrapper">
-                    <label for="edit-name">Email: <span class="form-required"
-                            title="This field is required.">*</span></label>
-                    <input type="text" maxlength="128" name="name" id="edit-name" size="60" value="" description="1"
-                        tabindex="1" autofocus="" data="1" class="form-text required ccl-f-placeholder ccl-f-input"
-                        autocomplete="none">
-                    <div style="display:none;" cc-forms="form-field-description" class="ccl-su-help-position">
-                        <div class="ccl-su-help">
-                            <div class="ccl-font-s ccl-align-l">
-                                <div cc-forms="description" class="l-card-hint"></div>
+                        <form action="" accept-charset="UTF-8" method="post" id="ajax-login-form" class="l-form ">
+                            {% csrf_token %}
+                            <div>
+                                <div class="ccl-margin-sm">
+                                    <div class="ccl-su-position-rel">
+                                        <div class="form-item" id="edit-name-wrapper">
+                                            <label for="edit-name">Email: <span class="form-required"
+                                                    title="This field is required.">*</span></label>
+                                            <input type="text" maxlength="128" name="name" id="edit-name" size="60"
+                                                value="" description="1" tabindex="1" autofocus="" data="1"
+                                                class="form-text required ccl-f-placeholder ccl-f-input"
+                                                autocomplete="none">
+                                            <div style="display:none;" cc-forms="form-field-description"
+                                                class="ccl-su-help-position">
+                                                <div class="ccl-su-help">
+                                                    <div class="ccl-font-s ccl-align-l">
+                                                        <div cc-forms="description" class="l-card-hint"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ccl-margin-sm">
+                                    <div class="ccl-su-position-rel">
+                                        <div class="toggle-password-login i-eye-mask-icon">
+                                            <p class="m-eye-icon-supporting-text" id="toggle-text-login">Show</p>
+                                        </div>
+                                        <div class="form-item" id="edit-pass-wrapper">
+                                            <label for="edit-pass">Password: <span class="form-required"
+                                                    title="This field is required.">*</span></label>
+                                            <input type="password" name="pass" id="edit-pass" maxlength="128" size="60"
+                                                description="1" tabindex="2" data="1"
+                                                class="form-text required ccl-f-placeholder ccl-f-input password-login"
+                                                autocomplete="none">
+                                            <div style="display:none;" cc-forms="form-field-description"
+                                                class="ccl-su-help-position">
+                                                <div class="ccl-su-help">
+                                                    <div class="ccl-font-s ccl-align-l">
+                                                        <div cc-forms="description" class="l-card-hint"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ccl-margin-s"><input type="submit" name="op" id="edit-submit-button"
+                                        value="Login" class="ccl-f-input ccl-float-right cc-login-btn form-control"
+                                        tabindex="3" autocomplete="none">
+                                </div>
+                                <p class="m-help__text l-margin-top-28">For any issues or assistance, email
+                                    <a href="#" class="m-list__link">help@mysite.com</a>
+                                </p><input type="hidden" name="form_build_id"
+                                    id="form-Idu1aItHDkdD6KuYKC9AI8C77bX6NvxD4rj7vtUyU6o"
+                                    value="form-Idu1aItHDkdD6KuYKC9AI8C77bX6NvxD4rj7vtUyU6o" autocomplete="none">
+                                <input type="hidden" name="form_id" id="edit-ajax-login-form" value="ajax_login_form"
+                                    autocomplete="none">
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ccl-margin-sm">
-            <div class="ccl-su-position-rel">
-                <div class="toggle-password-login i-eye-mask-icon">
-                    <p class="m-eye-icon-supporting-text" id="toggle-text-login">Show</p>
-                </div>
-                <div class="form-item" id="edit-pass-wrapper">
-                    <label for="edit-pass">Password: <span class="form-required"
-                            title="This field is required.">*</span></label>
-                    <input type="password" name="pass" id="edit-pass" maxlength="128" size="60" description="1"
-                        tabindex="2" data="1" class="form-text required ccl-f-placeholder ccl-f-input password-login"
-                        autocomplete="none">
-                    <div style="display:none;" cc-forms="form-field-description" class="ccl-su-help-position">
-                        <div class="ccl-su-help">
-                            <div class="ccl-font-s ccl-align-l">
-                                <div cc-forms="description" class="l-card-hint"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ccl-margin-s"><input type="submit" name="op" id="edit-submit-button" value="Login"
-                class="ccl-f-input ccl-float-right cc-login-btn form-control" tabindex="3" autocomplete="none">
-        </div>
-        <p class="m-help__text l-margin-top-28">For any issues or assistance, email
-            <a href="#" class="m-list__link">help@mysite.com</a>
-        </p><input type="hidden" name="form_build_id" id="form-Idu1aItHDkdD6KuYKC9AI8C77bX6NvxD4rj7vtUyU6o"
-            value="form-Idu1aItHDkdD6KuYKC9AI8C77bX6NvxD4rj7vtUyU6o" autocomplete="none">
-        <input type="hidden" name="form_id" id="edit-ajax-login-form" value="ajax_login_form" autocomplete="none">
-    </div>
-</form>
+                        </form>
 
 </section>
 

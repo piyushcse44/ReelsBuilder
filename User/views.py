@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from .form import CustomUserCreationForm
-from .models import UserInfo
+from .models import UserInfo,GeneraterVideImage
 
 
 # Create your views here.
@@ -47,12 +46,29 @@ def user_profile(request):
         user_info = UserInfo.objects.get(user=user)
     except UserInfo.DoesNotExist:
         UserInfo.objects.create(
-            user=user, user_email=user.email, video_count=0, subscription_status="free"
+            user=user, user_email=user.email , subscription_status="free"
         )
         user_info = UserInfo.objects.get(user=user)
+        
+   
+    video_count = len(user_info.user_video.all())
 
-    return render(request, "profile.html", {"user_info": user_info})
+    
+    return render(request, "profile.html", {"user_info": user_info , "video_count": video_count})
+
+
 
 
 def video_generator(request):
-    return render(request,"video_generator.html")
+
+    active = ""
+    queryobj = GeneraterVideImage.objects.filter(status ="active")
+
+    if queryobj.exists():
+        active = queryobj[0].generater_video_image
+
+        
+    current_image = {
+        "active" : active ,
+    }    
+    return render(request,"video_generator.html",current_image)

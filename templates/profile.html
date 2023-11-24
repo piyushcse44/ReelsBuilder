@@ -80,25 +80,44 @@
     <div class="divider"></div>
 
     <main class="column-container">
+        <p style="margin-top: 20px; color: red;">welcome : {{user_info.user_email}}</p>
         <div id="about" class="main column-container feature">
             <div class="header">
                 <div class="row-container header2">
                     <h3>My videos</h3>
-                    <a class="main-button" href="/video">Create</a>
+                    <a class="main-button" href="{% url 'video_generator' %}">Create</a>
                 </div>
                 <div class="limit">
-                    0/5 VIDEOS
-                    <a class="main-button">Upgrade</a>
+                    {{video_count}}/5 VIDEOS
+                    <a  href="{% url 'pricing' %}"  class="main-button">Upgrade</a>
                 </div>
             </div>
             <div class="divider"></div>
-            <table>
+
+
+
+
+            <table class="profile_video_info_table">
                 <tr>
-                    <th>Video ID</th>
-                    <th>Download Link</th>
-                    <th>Time Created</th>
+                  <th>Video ID</th>
+                  <th>Download Link</th>
+                  <th>Country</th>
                 </tr>
-            </table>
+                {% for video_info in user_info.user_video.all %}
+                <tr>
+                <td>{{video_info.video_id}}</td>
+                <td>{{video_info.download_link}}</td>
+                <td>{{video_info.time_created}}</td>
+                </tr>
+                {% endfor %}
+                
+              </table>
+              
+
+
+
+
+
         </div>
     </main>
 
